@@ -7,6 +7,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../public/styles/bootstrap-mini.css";
 import "../public/styles/media.css";
 import "../public/styles/style.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+config.autoAddCss = false;
+
 import "../public/styles/chat-tool.css";
 import Footer from "@/component/Footer";
 const geistSans = Geist({

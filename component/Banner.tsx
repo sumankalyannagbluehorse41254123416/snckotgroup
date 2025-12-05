@@ -86,7 +86,7 @@ const Banner = ({ banner }: BannerProps) => {
     <div className="banner container-fluid">
       <div>
         <div className="row">
-          <div className="banner-text col-md-6 col-sm-6">
+          <div className="banner-text col-md-6 col-sm-12">
             <h2>{banner.title}</h2>
 
             <div
@@ -105,15 +105,16 @@ const Banner = ({ banner }: BannerProps) => {
           </div>
 
           <div
-            className="banner-image col-md-6 col-sm-6"
+            className="banner-image col-md-6 col-sm-12"
             style={{ paddingRight: 0 }}>
-            <Image
+            {/* <Image
               className="banner-image2 img-fulid"
               src={banner.desktopImage}
               alt={banner.title}
               width={600}
               height={400}
-            />
+            /> */}
+            <img className="banner-image2 img-fulid" src="/images/sinckot_home_right.png" alt="" />
           </div>
         </div>
       </div>

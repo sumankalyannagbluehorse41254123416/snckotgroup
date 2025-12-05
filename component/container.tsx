@@ -10,7 +10,7 @@ const InfoSection = async () => {
     <div className="container mb-3">
       <div className="row">
         {/* Column 1 */}
-        <div className="col-md-4 col-sm-4">
+        <div className="col-md-4 col-sm-12">
           <h3 className="who pb-3">{data[0]?.title}</h3>
           {/* {data[0]?.shortDescription && (
             <p
@@ -25,7 +25,7 @@ const InfoSection = async () => {
         </div>
 
         {/* Column 2 */}
-        <div className="col-md-4 col-sm-4">
+        <div className="col-md-4 col-sm-12">
           <h3 className="who pb-3">{data[1]?.title}</h3>
           <div
             dangerouslySetInnerHTML={{
@@ -35,7 +35,7 @@ const InfoSection = async () => {
         </div>
 
         {/* Column 3 */}
-        <div className="col-md-4 col-sm-4">
+        <div className="col-md-4 col-sm-12">
           <h3 className="who pb-3">{data[2]?.title}</h3>
           <div
             dangerouslySetInnerHTML={{

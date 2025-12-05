@@ -101,7 +101,7 @@ const PropertySection: FC = () => {
     <div className="container">
       <div className="row">
         {/* LEFT IMAGE */}
-        <div className="property-image col-md-6 col-sm-6 mt-5">
+        <div className="property-image col-md-6 col-sm-12 mt-5">
           <Image
             className="img-fulid"
             src={data?.cover_image_url || ""}
@@ -111,7 +111,7 @@ const PropertySection: FC = () => {
           />
         </div>
 
-        <div className="property-text col-md-6 col-sm-6">
+        <div className="property-text col-md-6 col-sm-12">
           <h2>{data?.title}</h2>
 
           <div
@@ -124,13 +124,14 @@ const PropertySection: FC = () => {
           {sectionData?.map((section, index) => (
             <div key={index} className="property-section mt-5">
               <div className="property-section-img">
-                <Image
+                {/* <Image
                   className="img-fulid"
                   src={section.image || ""}
                   alt={section.title}
                   width={80}
                   height={80}
-                />
+                /> */}
+                <img className="img-fulid" src="/images/mission.png" alt="" />
               </div>
 
               <div className="property-section-text">
@@ -166,7 +167,7 @@ const PropertySection: FC = () => {
                 <h4>{post.title}</h4>
 
                 <p className="text-center">
-                  <span>{post.tag}</span>
+                  <em>{post.tag}</em>
                 </p>
 
                 <p

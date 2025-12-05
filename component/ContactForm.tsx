@@ -207,7 +207,7 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="col-md-6 col-sm-6">
+    <div className="col-md-6 col-sm-12">
       <div className="footer-form">
         <h4>Enquire</h4>
 

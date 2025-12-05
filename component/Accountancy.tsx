@@ -106,7 +106,7 @@ const Accountancy = ({ pagedata, section }: AccountancyProps) => {
       <div className="container">
         <div className="row">
           {/* Left Image */}
-          <div className="col-md-6 col-sm-6">
+          <div className="col-lg-6 col-md-12 col-sm-12">
             <Image
               className="img-fluid sinclair-image"
               src={pagedata.cover_image_url ?? ""}
@@ -117,7 +117,7 @@ const Accountancy = ({ pagedata, section }: AccountancyProps) => {
           </div>
 
           {/* Right Content */}
-          <div className="sinclair-text col-md-6 col-sm-6">
+          <div className="sinclair-text col-lg-6 col-md-12 col-sm-12">
             <h3>
               <span>{pagedata.title}</span>
               <br />
