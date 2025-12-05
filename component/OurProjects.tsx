@@ -120,7 +120,7 @@ const OurProjects = async () => {
     <div className="our-projects mt-5" id="completed-projects">
       <div className="container">
         <div className="block-heads">
-          <div
+          <div className="short_des"
             dangerouslySetInnerHTML={{
               __html: res.pagedata?.description || "No description",
             }}

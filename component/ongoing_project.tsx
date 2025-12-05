@@ -13,7 +13,7 @@ const OngoingProject = async () => {
     <div className="ongoing-project mb-5" id="current-projects">
       <div className="container">
         <div className="block-heads">
-          <div
+          <div className="short_des"
             dangerouslySetInnerHTML={{
               __html: res.pagedata?.description || "No description",
             }}
@@ -23,7 +23,7 @@ const OngoingProject = async () => {
 
         <div className="row">
           {/* Image Section */}
-          <div className="col-md-6 col-sm-6">
+          <div className="col-md-6 col-sm-12">
             <Image
               className="img-fulid ongoing-img"
               src={
@@ -37,8 +37,8 @@ const OngoingProject = async () => {
           </div>
 
           {/* Text Section */}
-          <div className="col-md-6 col-sm-6">
-            <h4>{data[0]?.title}</h4>
+          <div className="col-md-6 col-sm-12">
+            <h4 className="des-title">{data[0]?.title}</h4>
 
             {/* <p className="cc">
               A seafront property, it overlooks the town’s extensive sandy beach
