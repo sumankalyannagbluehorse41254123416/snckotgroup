@@ -13,14 +13,12 @@ const OngoingProject = async () => {
     <div className="ongoing-project mb-5" id="current-projects">
       <div className="container">
         <div className="block-heads">
-          <h5>
-            <span
-              dangerouslySetInnerHTML={{
-                __html: res.pagedata?.description || "No description",
-              }}
-            />
-            {res.pagedata?.title}
-          </h5>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: res.pagedata?.description || "No description",
+            }}
+          />
+          <h5>{res.pagedata?.title}</h5>
         </div>
 
         <div className="row">
