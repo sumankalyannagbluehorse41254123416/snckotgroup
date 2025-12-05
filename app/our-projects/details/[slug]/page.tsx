@@ -337,12 +337,13 @@ export default function ProjectPage() {
       try {
         setLoading(true);
         const res = await fetchPageData({ uid: slug });
+        // console.log("Page Data ===&&&&&&&&&&&&&&&&&&&&&&&&&&>", res);
+
         setPageData({
-          pagedata: res.pagedata as any,
+          pagedata: res.pagedata as PageApiResponse["pagedata"],
           pageItemdataWithSubsection:
             res.pageItemdataWithSubsection as Section[],
         });
-        // console.log("Page Data ===&&&&&&&&&&&&&&&&&&&&&&&&&&>", res);
         const data = res?.pagedata;
         const section = res?.pageItemdataWithSubsection;
         // console.log("data ++++", data);
@@ -372,7 +373,7 @@ export default function ProjectPage() {
   const overviewSection = pageItemdataWithSubsection.find(
     (s) => s.title.toLowerCase() === "overview"
   );
-  console.log("overrrrrrr", overviewSection);
+  // console.log("overrrrrrr", overviewSection);
   const highlightsSection = pageItemdataWithSubsection.find(
     (s) => s.title.toLowerCase() === "highlights"
   );
@@ -383,29 +384,33 @@ export default function ProjectPage() {
     sub.title.toLowerCase().includes("indoor")
   );
 
-  console.log("indoorSub******************", indoorSub?.description);
-
   const highlightUls =
     indoorSub?.description.match(/<ul[\s\S]*?<\/ul>/gi) || [];
 
-  console.log({ highlightUls });
+  // console.log({ highlightUls });
 
   const outdoorSub = highlightsSection?.subsections?.find((sub) =>
     sub.title.toLowerCase().includes("outdoor")
   );
+  // console.log("*****************", outdoorSub);
+
+  const highlightUls2 =
+    outdoorSub?.description.match(/<ul[\s\S]*?<\/ul>/gi) || [];
+
+  // console.log({ highlightUls2 });
   // console.log("outdoorSub******************", outdoorSub);
   const otherSub = highlightsSection?.subsections?.find((sub) =>
     sub.title.toLowerCase().includes("other")
   );
-  // console.log("otherSub******************", otherSub);
+  const highlightUls3 =
+    otherSub?.description.match(/<ul[\s\S]*?<\/ul>/gi) || [];
+  // console.log({ highlightUls3 });
 
   const mainGalleryImage = gallerySection?.image;
   const galleryImages =
     gallerySection?.subsections
       ?.filter((sub) => sub.image)
       .map((sub) => sub.image!) || [];
-
-  // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
   return (
     <div>
@@ -456,7 +461,7 @@ export default function ProjectPage() {
         <div className="container">
           <div className="row">
             <div className="col-md-6 poLeft">
-              <h5>Overview</h5>
+              <h5>{overviewSection?.title}</h5>
               <div
                 dangerouslySetInnerHTML={{
                   __html:
@@ -483,145 +488,135 @@ export default function ProjectPage() {
         </div>
       </div>
 
-      {/*!Highlights Section with Tabs *************************************************************************/}
-      <div className="phighlights" id="highlights">
-        <div className="row">
-          <div className="container">
-            <div className="block2 mb-5">
-              <h5>
-                <span>RESIDENTIAL FLAT FEATURES</span>
-                Highlights
-              </h5>
-            </div>
-            {/* TAB BUTTONS */}
-            <div className="tab tabbtn">
-              <div className="phTabs">
-                <ul className="phdoor">
-                  <li className="ph1">
-                    {/* <button
-                className={`tablinks ${
-                  activeTab === "indoor" ? "active" : ""
-                }`}
-                onClick={() => setActiveTab("indoor")}>
-                INDOOR AMENITIES
-              </button> */}
-                    <Link
-                      href="#"
-                      className={`tablinks ${
-                        activeTab === "indoor" ? "active" : ""
-                      }`}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        setActiveTab("indoor");
-                      }}>
-                      {indoorSub?.title}
-                    </Link>
-                  </li>
-
-                  <li className="ph1">
-                    {/* <button
-                className={`tablinks ${
-                  activeTab === "outdoor" ? "active" : ""
-                }`}
-                onClick={() => setActiveTab("outdoor")}>
-                OUTDOOR AMENITIES
-              </button> */}
-                    <a
-                      href="#"
-                      className={`tablinks ${
-                        activeTab === "indoor" ? "active" : ""
-                      }`}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        setActiveTab("outdoor");
-                      }}>
-                      OUTDOOR AMENITIES
-                    </a>
-                  </li>
-
-                  <li className="ph1">
-                    {/* <button
-                className={`tablinks ${
-                  activeTab === "other" ? "active" : ""
-                }`}
-                onClick={() => setActiveTab("other")}>
-                OTHER SERVICES
-              </button> */}
-                    <a
-                      href="#"
-                      className={`tablinks ${
-                        activeTab === "indoor" ? "active" : ""
-                      }`}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        setActiveTab("other");
-                      }}>
-                      INDOOR AMENITIES
-                    </a>
-                  </li>
-                </ul>
+      {highlightsSection && (
+        <div className="phighlights" id="highlights">
+          <div className="row">
+            <div className="container">
+              <div className="block2 mb-5">
+                <h5>
+                  <span>RESIDENTIAL FLAT FEATURES</span>
+                  {highlightsSection?.title}
+                </h5>
               </div>
-            </div>
 
-            {/* TAB CONTENT */}
-            <div className="phMatr">
-              {/* INDOOR */}
-              {activeTab === "indoor" && (
-                <div id="indoor-amenities" className="tabcontent phlink ani-0">
-                  <h3>{indoorSub?.title}</h3>
-                  <div className="content-box">
-                    {highlightUls.map((ul, i) => (
-                      <div
-                        key={i}
-                        dangerouslySetInnerHTML={{
-                          __html: ul || "NO Indoor Section",
-                        }}></div>
-                    ))}
+              {/* TAB BUTTONS */}
+              <div className="tab tabbtn">
+                <div className="phTabs">
+                  <ul className="phdoor">
+                    {/* INDOOR ONLY IF EXISTS */}
+                    {indoorSub && (
+                      <li className="ph1">
+                        <a
+                          href="#"
+                          className={`tablinks ${
+                            activeTab === "indoor" ? "active" : ""
+                          }`}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            setActiveTab("indoor");
+                          }}>
+                          {indoorSub.title}
+                        </a>
+                      </li>
+                    )}
+
+                    {/* OUTDOOR ONLY IF EXISTS */}
+                    {outdoorSub && (
+                      <li className="ph1">
+                        <a
+                          href="#"
+                          className={`tablinks ${
+                            activeTab === "outdoor" ? "active" : ""
+                          }`}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            setActiveTab("outdoor");
+                          }}>
+                          {outdoorSub.title}
+                        </a>
+                      </li>
+                    )}
+
+                    {/* OTHER ONLY IF EXISTS */}
+                    {otherSub && (
+                      <li className="ph1">
+                        <a
+                          href="#"
+                          className={`tablinks ${
+                            activeTab === "other" ? "active" : ""
+                          }`}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            setActiveTab("other");
+                          }}>
+                          {otherSub.title}
+                        </a>
+                      </li>
+                    )}
+                  </ul>
+                </div>
+              </div>
+
+              {/* TAB CONTENT */}
+              <div className="phMatr">
+                {/* INDOOR */}
+                {activeTab === "indoor" && indoorSub && (
+                  <div
+                    id="indoor-amenities"
+                    className="tabcontent phlink ani-0">
+                    <h3>{indoorSub.title}</h3>
+                    <div className="content-box">
+                      {highlightUls.map((ul, i) => (
+                        <div
+                          key={i}
+                          dangerouslySetInnerHTML={{ __html: ul }}></div>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
 
-              {/* OUTDOOR */}
-              {activeTab === "outdoor" && (
-                <div id="outdoor-amenities" className="tabcontent phlink ani-1">
-                  <h3>OUTDOOR AMENITIES</h3>
-                  <ul>
-                    <li>Communal garden with plants & pathways</li>
-                    <li>Paved access to main entrance</li>
-                    <li>24Hrs CCTV in car park and entrance</li>
-                    <li>Keyless video entry system</li>
-                    <li>Secured gated car park & play area</li>
-                    <li>Dedicated parking space</li>
-                    <li>Security coded gated parking entrance</li>
-                    <li>Recycling of existing building materials</li>
-                    <li>Waste management & recycling facilities</li>
-                  </ul>
-                </div>
-              )}
+                {/* OUTDOOR */}
+                {activeTab === "outdoor" && outdoorSub && (
+                  <div
+                    id="outdoor-amenities"
+                    className="tabcontent phlink ani-1">
+                    <h3>{outdoorSub.title}</h3>
+                    <div className="content-box">
+                      {highlightUls2.map((ul, i) => (
+                        <div
+                          key={i}
+                          dangerouslySetInnerHTML={{ __html: ul }}></div>
+                      ))}
+                    </div>
+                  </div>
+                )}
 
-              {/* OTHER SERVICES */}
-              {activeTab === "other" && (
-                <div id="other-services" className="tabcontent phlink ani-2">
-                  <h3>OTHER SERVICES</h3>
-                  <ul>
-                    <li>Southall Station, 1.8 miles</li>
-                    <li>Hounslow West tube station, 0.8 miles</li>
-                    <li>Bedfont Lakes Country Park</li>
-                    <li>Hounslow Urban Farm</li>
-                  </ul>
-                </div>
-              )}
+                {/* OTHER */}
+                {activeTab === "other" && otherSub && (
+                  <div id="other-services" className="tabcontent phlink ani-2">
+                    <h3>{otherSub.title}</h3>
+                    <div className="content-box">
+                      {highlightUls3.map((ul, i) => (
+                        <div
+                          key={i}
+                          dangerouslySetInnerHTML={{ __html: ul }}></div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* Gallery Section */}
       <div className="pGallery" id="gallery">
         <div className="container">
           <div className="block2 mb-5">
             <h5>
-              <span>RESIDENTIAL PROJECT IMAGES</span>Gallery
+              <span>RESIDENTIAL PROJECT IMAGES</span>
+              {gallerySection?.title}
             </h5>
           </div>
           <div className="row">
