@@ -120,14 +120,12 @@ const OurProjects = async () => {
     <div className="our-projects mt-5" id="completed-projects">
       <div className="container">
         <div className="block-heads">
-          <h5>
-            <span
-              dangerouslySetInnerHTML={{
-                __html: res.pagedata?.description || "No description",
-              }}
-            />
-            {res.pagedata?.title}
-          </h5>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: res.pagedata?.description || "No description",
+            }}
+          />
+          <h5>{res.pagedata?.title}</h5>
         </div>
 
         <div className="row">
