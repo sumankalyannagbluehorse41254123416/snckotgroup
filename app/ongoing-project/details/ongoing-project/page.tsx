@@ -1,4 +1,4 @@
-import { fetchPageData, PageApiResponse } from "@/app/action/page";
+import { fetchPageData, PageApiResponse } from "@/app/action/pageAction";
 import Image from "next/image";
 
 const ProjectDetails = async () => {
@@ -14,7 +14,7 @@ const ProjectDetails = async () => {
     ?.subsections as PageApiResponse["subsections"];
   const review = res?.editReviedata as PageApiResponse["editReviedata"];
 
-  console.log("Subsections", res);
+  // console.log("Subsections", res);
 
   return (
     <div>

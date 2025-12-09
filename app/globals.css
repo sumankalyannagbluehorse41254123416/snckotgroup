@@ -1,3 +1,6 @@
+/* globals.css */
+@import "font-awesome/css/font-awesome.min.css";
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -39,4 +42,14 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px #e2e7e0 inset !important;
+  box-shadow: 0 0 0 1000px #e2e7e0 inset !important;
+  background-color: #e2e7e0 !important;
+  -webkit-text-fill-color: #000 !important;
 }

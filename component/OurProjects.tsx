@@ -114,13 +114,14 @@ const OurProjects = async () => {
   const data =
     res?.pageItemdataWithSubsection as PageApiResponse["pageItemdataWithSubsection"];
 
-  console.log("data", data);
+  // console.log("data", data);
 
   return (
     <div className="our-projects mt-5" id="completed-projects">
       <div className="container">
         <div className="block-heads">
-          <div className="short_des"
+          <div
+            className="short_des"
             dangerouslySetInnerHTML={{
               __html: res.pagedata?.description || "No description",
             }}

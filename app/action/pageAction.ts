@@ -114,7 +114,7 @@ export interface Page {
   title: string;
   cover_image_url?: string;
   description: string;
-  html: string;
+  html?: string;
 }
 export interface Review {
   comment: string;

@@ -297,7 +297,7 @@
 //   );
 // }
 "use client";
-import { fetchPageData } from "@/app/action/page";
+import { fetchPageData } from "@/app/action/pageAction";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { title } from "process";

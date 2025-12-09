@@ -99,8 +99,8 @@
 
 // export default SinckotCapitalPage;
 import Image from "next/image";
-import { fetchPageData } from "../action/page";
-import type { PageApiResponse } from "../action/page";
+import { fetchPageData } from "../action/pageAction";
+import type { PageApiResponse } from "../action/pageAction";
 
 const SinckotCapitalPage = async () => {
   const UID = "eb4d09d1-373c-46e2-8e7c-c8c3940fa6ce";
