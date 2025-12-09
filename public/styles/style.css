@@ -96,7 +96,8 @@ a {
   .sinclair-contact .contact-box h2 {
     font-size: 18px;
   }
-  .sinclair-contact .sinclair-icon i{
+
+  .sinclair-contact .sinclair-icon i {
     font-size: 40px;
   }
 }
@@ -675,6 +676,9 @@ h4.ongoing-text::before {
   padding-left: 25px;
 }
 
+
+
+
 .footer-form input[type="text"],
 .footer-form input[type="email"],
 .footer-form input[type="tel"] {
@@ -689,6 +693,7 @@ h4.ongoing-text::before {
   margin-top: 20px;
   outline: none;
   color: black;
+
 }
 
 .footer-form textarea {
@@ -966,6 +971,10 @@ ul.pOverviewList li span {
   margin-right: 15px;
   height: 80px;
 }
+
+/* ::selection {
+  background-color: transparent !important;
+} */
 
 .phTabs>ul li:hover,
 .phTabs>ul li.active {

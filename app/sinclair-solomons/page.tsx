@@ -1,6 +1,6 @@
 import { fetchPageData } from "@/lib/page";
 import Image from "next/image";
-import { PageApiResponse } from "../action/page";
+import { PageApiResponse } from "../action/pageAction";
 import Link from "next/link";
 
 const SolomonsPage = async () => {

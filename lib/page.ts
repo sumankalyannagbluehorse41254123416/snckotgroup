@@ -120,6 +120,7 @@ interface Page {
   shortDescription?: string;
   description: string;
   subsections: Subsection[];
+  html?: string;
 }
 
 export interface ApiResponse {

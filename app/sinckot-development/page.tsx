@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { fetchPageData, PageApiResponse } from "../action/page";
+import { fetchPageData, PageApiResponse } from "../action/pageAction";
 
 const DevelopmentPage = async () => {
   const UID = "53b9656d-5324-46ea-84e3-ba8b5f9a9891";

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { fetchPageData, PageApiResponse } from "../action/page";
+import { fetchPageData, PageApiResponse } from "../action/pageAction";
 
 const McKinsley = async () => {
   const UID = "9a8e6eeb-9759-4757-846c-717565c278ed";
