@@ -180,7 +180,6 @@
 // };
 
 // export default ContactForm;
-
 "use client";
 
 import { submitFormData } from "@/app/action/contact";
@@ -206,22 +205,13 @@ const ContactForm: React.FC = () => {
     message: "",
   });
 
-  // ---------- Handle Input ----------
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-
-    // PHONE VALIDATION — only numbers + max 10 digits
-    if (name === "phone") {
-      const onlyNums = value.replace(/\D/g, "");
-      if (onlyNums.length > 10) return;
-      setFormData((prev) => ({ ...prev, phone: onlyNums }));
-      setErrors((prev) => ({ ...prev, phone: "" }));
-      return;
-    }
-
     setFormData((prev) => ({ ...prev, [name]: value }));
+
+    // Clear field error on typing
     setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
@@ -243,24 +233,15 @@ const ContactForm: React.FC = () => {
     if (!formData.email.trim()) {
       newErrors.email = "Email is required";
       isValid = false;
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Enter a valid email";
-      isValid = false;
     }
-
     if (!formData.phone.trim()) {
       newErrors.phone = "Phone number is required";
       isValid = false;
-    } else if (formData.phone.length !== 10) {
-      newErrors.phone = "Phone number must be 10 digits";
-      isValid = false;
     }
-
     if (!formData.company.trim()) {
       newErrors.company = "Company is required";
       isValid = false;
     }
-
     if (!formData.message.trim()) {
       newErrors.message = "Message is required";
       isValid = false;
@@ -272,17 +253,23 @@ const ContactForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
     if (isSubmitting) return;
 
-    const valid = validateForm();
-    if (!valid) return;
+    if (!validateForm()) return;
 
     setIsSubmitting(true);
 
     try {
-      await submitFormData("8eadd7c4-7e60-4879-ab29-5a710328946b", formData);
+      await submitFormData(
+        {}, // host/config object
+        "8eadd7c4-7e60-4879-ab29-5a710328946b",
+        formData
+      );
+
       toast.success("Your message has been sent successfully!");
 
+      // Reset form
       setFormData({
         name: "",
         email: "",
@@ -292,7 +279,7 @@ const ContactForm: React.FC = () => {
       });
     } catch (error) {
       console.error("Submit error:", error);
-      // toast.error("Your message could not be sent. Please try again.");
+      toast.error("Your message could not be sent. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -310,7 +297,7 @@ const ContactForm: React.FC = () => {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className={errors.name ? "error-input" : "bg-none"}
+            className={errors.name ? "error-input" : ""}
           />
 
           <input
@@ -329,7 +316,6 @@ const ContactForm: React.FC = () => {
             value={formData.phone}
             onChange={handleChange}
             className={errors.phone ? "error-input" : ""}
-            maxLength={10}
           />
 
           <input
@@ -358,11 +344,6 @@ const ContactForm: React.FC = () => {
       <style>{`
         .error-input {
           border-bottom: 1px solid red !important;
-        }
-        .error-text {
-          color: red;
-          font-size: 12px;
-          margin: 4px 0 10px 0;
         }
       `}</style>
     </div>
