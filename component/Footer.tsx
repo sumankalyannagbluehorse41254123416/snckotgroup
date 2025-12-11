@@ -45,13 +45,9 @@ const Footer: FC = () => {
           {/* FORM SECTION */}
           <FooterEnquiryForm />
         </div>
-
-        {/* CHAT TOOL (STATIC UI AS PROVIDED) */}
         <div className="page-wraper">
           <ChatTool />
         </div>
-
-        {/* COPYRIGHT */}
         <div className="footer-copyright">
           <div className="container">
             <p className="copyright-text">

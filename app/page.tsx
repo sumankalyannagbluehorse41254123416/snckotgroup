@@ -1,4 +1,3 @@
-import SinclairBanner from "@/component/Accountancy";
 // import Banner from "@/component/Banner";
 import InfoSection from "@/component/container";
 import OngoingProject from "@/component/ongoing_project";

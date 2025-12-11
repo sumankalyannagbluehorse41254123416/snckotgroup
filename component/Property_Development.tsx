@@ -124,14 +124,14 @@ const PropertySection: FC = () => {
           {sectionData?.map((section, index) => (
             <div key={index} className="property-section mt-5">
               <div className="property-section-img">
-                {/* <Image
+                <Image
                   className="img-fulid"
                   src={section.image || ""}
                   alt={section.title}
-                  width={80}
-                  height={80}
-                /> */}
-                <img className="img-fulid" src="/images/mission.png" alt="" />
+                  width={300}
+                  height={300}
+                />
+                {/* <img className="img-fulid" src="/images/mission.png" alt="" /> */}
               </div>
 
               <div className="property-section-text">
