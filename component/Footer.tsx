@@ -11,7 +11,7 @@ const Footer: FC = () => {
       <div className="container">
         <div className="row">
           {/* ABOUT SECTION */}
-          <div className="col-md-6 col-sm-12 footer-text" id="about-us">
+          <div className="col-lg-6 col-md-12 col-sm-12 footer-text" id="about-us">
             {/* <h3>About Us</h3>
             <p>
               First established in 2006, Sinckot Group began with a primary
