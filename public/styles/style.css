@@ -79,6 +79,30 @@ a {
 }
 
 @media (max-width:991px) {
+  .footer-copyright .copyright-icon{
+    margin:auto;
+    display: flex;
+    justify-content: center;
+  }
+  form .submitBtn{
+    margin-right: 40px;
+    float: right;
+  }
+  .footer-copyright .copyright-text{
+    float: unset;
+  }
+  .footer-copyright .copyright-icon ul{
+    float: unset;
+    margin: 0;
+    padding-left: 0;
+  }
+  .footer-box{
+    width: 100% !important;
+  }
+  .footer-form{
+    margin-top: 40px !important;
+    width: 100% !important;
+  }
   .sinclair-text .sinclair-contact .contact-box {
     margin-top: 0;
   }
@@ -578,6 +602,13 @@ h4.ongoing-text::before {
 .footer {
   background-color: #242424;
   height: 693px;
+}
+
+@media (max-width:991px){
+  .footer{
+    height: auto;
+    padding-bottom: 20px;
+  }
 }
 
 .footer-text h3 {
