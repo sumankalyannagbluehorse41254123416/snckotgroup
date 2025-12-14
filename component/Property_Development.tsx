@@ -4,35 +4,29 @@ import Link from "next/link";
 import Image from "next/image";
 import { fetchPageData } from "@/lib/page";
 import { fetchBlogData } from "@/lib/blog";
-
-// ===== TYPES =====
 interface Subsection {
   id: number;
   title: string;
   description?: string;
   image?: string;
 }
-
 interface Section {
   title: string;
   shortDescription?: string;
   image?: string;
   subsections?: Subsection[];
 }
-
 interface Page {
   title: string;
   cover_image_url?: string;
   description: string;
   html: string;
 }
-
 interface PageApiResponse {
   status: boolean;
   pagedata: Page;
   pageItemdataWithSubsection: Section[];
 }
-
 interface BlogPost {
   title: string;
   slug: string;
@@ -43,7 +37,6 @@ interface BlogPost {
   cta: string;
   tag: string;
 }
-
 const PropertySection: FC = () => {
   const [pageData, setPageData] = useState<PageApiResponse | null>(null);
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
