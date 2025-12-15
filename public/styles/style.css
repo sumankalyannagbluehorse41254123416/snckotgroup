@@ -753,6 +753,12 @@ h4.ongoing-text::before {
   border: none;
 }
 
+@media (max-width:400px){
+  .submitBtn{
+    margin-left: 75px;
+  }
+}
+
 .copyright-text {
   color: #fff;
   padding-top: 40px;
@@ -893,6 +899,12 @@ h4.ongoing-text::before {
   display: block;
   width: 100%;
   background: #f8f8f8;
+}
+
+@media (max-width:768px){
+  .pOverview#overview{
+    padding:50px 0px 20px;
+  }
 }
 
 .pOverview .poLeft h5 {
@@ -1111,6 +1123,11 @@ ul.pOverviewList li span {
   width: 100%;
   background: #f8f8f8;
   padding: 60px 0px;
+}
+@media (max-width:768px){
+  .pGallery#gallery{
+    padding: 0 0 60px;
+  }
 }
 
 ul.pgalImages {}

@@ -525,7 +525,7 @@ export default function ProjectPage() {
       <div className="pOverview" id="overview">
         <div className="container">
           <div className="row">
-            <div className="col-md-6 poLeft">
+            <div className="col-lg-6 col-md-5 poLeft">
               <h5>{overviewSection?.title}</h5>
               <div
                 dangerouslySetInnerHTML={{
@@ -536,7 +536,7 @@ export default function ProjectPage() {
               />
             </div>
 
-            <div className="col-md-6">
+            <div className="col-lg-6 col-md-7">
               <ul className="pOverviewList">
                 {overviewSection?.subsections?.map((sub, i) => (
                   <li key={i}>
