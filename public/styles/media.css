@@ -430,7 +430,7 @@
   }
 
   .banner-image-new {
-    height: 370px;
+    height: 370px !important;
     /* background-image: url(../image/bnr3.jpg); */
     background-size: cover;
   }
