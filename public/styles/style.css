@@ -1126,7 +1126,7 @@ ul.pOverviewList li span {
 }
 @media (max-width:768px){
   .pGallery#gallery{
-    padding: 0 0 60px;
+    padding: 20px 0 60px;
   }
 }
 
