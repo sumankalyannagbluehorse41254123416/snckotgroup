@@ -84,13 +84,21 @@ button:focus {
   background-color: #3da86a;
   color: var(--chat-light);
   border: none;
-  padding: 3px 10px;
+  padding: 8px 10px;
   text-align: center;
   display: block;
   width: 100%;
-  font-size: 15px;
+  font-size: 16px;
   border-radius: 50px;
 }
+
+.rotate-45 {
+  transform: rotate(45deg);
+  margin-right: 18px;
+ 
+}
+
+
 
 .chat_tool .ch_theme_button button:focus {
   outline: none !important;

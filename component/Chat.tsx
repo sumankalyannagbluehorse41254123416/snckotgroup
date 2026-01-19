@@ -341,7 +341,8 @@ export default function ChatTool() {
               </div>
               <div className="ch_theme_button">
                 <button onClick={() => setCurrentView("form")}>
-                  <i className="fa fa-send"></i>
+                  <i className="fa fa-send rotate-45"></i>
+
                   New Conversation
                 </button>
               </div>
@@ -415,7 +416,8 @@ export default function ChatTool() {
                 </div>
                 <div className="ch_theme_button">
                   <button type="submit">
-                    <i className="fa fa-send"></i>
+                    <i className="fa fa-send rotate-45"></i>
+
                     Start Chat
                   </button>
                 </div>
