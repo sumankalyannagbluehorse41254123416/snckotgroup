@@ -350,7 +350,13 @@ export default function ChatTool() {
 
           {/* User Form */}
           {currentView === "form" && (
-            <div className="user_form" style={{ display: "flex" }}>
+            <div
+              className="user_form"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                width: "100%",
+              }}>
               <div className="chat_header">
                 <div className="chat_header_inner">
                   <button
