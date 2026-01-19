@@ -24,13 +24,13 @@ const Footer: FC = () => {
             <About />
 
             <div className="footer-box">
-              <i className="fa fa-map-marker" />
+              <i className="fa-solid fa-location-dot"></i>
               <p>Location:</p>
               <h6>Sinckot House, 211 Station Road, Harrow, HA1 2TP</h6>
             </div>
 
             <div className="footer-box">
-              <i className="fa fa-mobile" />
+              <i className="fa-solid fa-mobile-screen"></i>
               <p>Phone:</p>
               <h6>0208 427 8787</h6>
             </div>

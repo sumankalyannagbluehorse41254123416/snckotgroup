@@ -146,7 +146,8 @@ const Accountancy = ({ pagedata, section }: AccountancyProps) => {
             {/* Contact Box */}
             <div className="sinclair-contact">
               <div className="sinclair-icon">
-                <i className="fa fa-volume-control-phone"></i>
+                <i className="fa-solid fa-phone-volume call-icon"></i>
+
               </div>
               <div className="contact-box">
                 <h4 className="pt-3">12/7 Support Team</h4>

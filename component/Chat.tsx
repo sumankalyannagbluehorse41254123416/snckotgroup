@@ -417,7 +417,6 @@ export default function ChatTool() {
                 <div className="ch_theme_button">
                   <button type="submit">
                     <i className="fa fa-send rotate-45"></i>
-
                     Start Chat
                   </button>
                 </div>
