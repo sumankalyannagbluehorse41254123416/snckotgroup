@@ -158,6 +158,7 @@ button:focus {
   color: var(--chat-dark);
   border-radius: 0px;
   outline: none;
+  background-color: #fff;
 }
 
 .user_form .fieldrow .user_form_input:focus {
